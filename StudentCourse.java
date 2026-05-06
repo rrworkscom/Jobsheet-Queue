@@ -1,7 +1,7 @@
 class StudentCourse {
     String nim, name, studyProgram, className;
 
-    public Student(String nim, String name, String studyProgram, String className) {
+    public StudentCourse(String nim, String name, String studyProgram, String className) {
         this.nim = nim;
         this.name = name;
         this.studyProgram = studyProgram;
