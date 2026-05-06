@@ -58,40 +58,39 @@ public class Queue {
     }
 
     void enqueue(int dt) {
-        if(!isFull()) {
-            if(isEmpty()) {
-                front = rear = 0;
-            } else {
-                if (rear == max - 1) {
-                    rear = 0;
-                } else {
-                    rear++;
-                }
-            }
-            data[rear] = dt;
-            size++;
-            System.out.printf("%d is successfully added at index %d\n", dt, rear);
-        } else {
+        if (isFull()) {
             System.out.println("Queue is full!!");
+            System.exit(0);
         }
+        if (isEmpty()) {
+            front = rear = 0;
+        } else {
+            if (rear == max - 1) {
+                rear = 0;
+            } else {
+                rear++;
+            }
+        }
+        data[rear] = dt;
+        size++;
+        System.out.printf("%d is successfully added at index %d\n", dt, rear);
     }
 
     int dequeue() {
-        int dt = 0;
-        if(!isEmpty()) {
-            dt = data[front];
-            size--;
-            if(isEmpty()) {
-                front = rear = -1;
-            } else {
-                if(front == max -1) {
-                    front = 0;
-                } else {
-                    front++;
-                }
-            }
-        } else {
+        if (isEmpty()) {
             System.out.println("Queue is empty!!");
+            System.exit(0);
+        }
+        int dt = data[front];
+        size--;
+        if (isEmpty()) {
+            front = rear = -1;
+        } else {
+            if (front == max - 1) {
+                front = 0;
+            } else {
+                front++;
+            }
         }
         return dt;
     }
